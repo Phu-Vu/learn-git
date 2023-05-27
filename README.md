@@ -124,6 +124,16 @@ Chỉnh sửa nội dung của code gây xung đột, sau đó chúng ta thực 
 
 ### Gitflow workflow
 Gitflow workflow là một quy chuẩn trong quá trình làm việc, cách mà chúng ta xây dựng các branch khác nhau và cách thức để marge chúng lại với nhau.
+Đây là hình ảnh mô tả quy trình hoạt động với các nhánh
+![image](https://github.com/Phu-Vu/learn-git/blob/main/git%20workflow.png)
+
+Giải thích về mỗi nhánh:
+* Master: là nhánh chính, có sẵn trong git, nó thể hiện các version của project. Và chúng ta không nên sửa đổi file trực tiếp trên master. Để sửa đổi chúng ta sẽ tạo ra các nhánh sau đó push tất cả các code vào nhánh master.
+* Develop: là nhánh phát triển các tính năng của dự án, được tạo từ nhánh master ngay từ ban đầu. Từ nhánh develop, chúng ta tiếp tục tạo ra các nhánh nhỏ khác( trong hình là nhánh feature branches) để chia nhỏ xây dựng dự án.
+* Feature branches: là nhánh nhỏ được chia ra từ nhánh develop, mỗi nhánh mang một chức năng riêng và sẽ hợp nhất về nhánh develop.
+* Release branches: Code của nhánh develop sẽ đẩy lên nhánh release và sau cuối cùng nhánh này sẽ đẩy lên cho master để tạo ra sản phẩm.
+* Hotfixes: 
+
 
 
 ## Tài liệu tham khảo:
