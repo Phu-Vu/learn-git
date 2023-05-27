@@ -57,7 +57,7 @@ Thông thường trong các project của chúng ta luôn có một nhánh code 
 Để giải đáp các câu hỏi này thì trước tiên chúng ta tìm hiểu branch là gì? Như tên gọi của nó thì branch là nhánh của repository, mỗi nhánh sẽ tương tự như một không gian làm việc độc lập phát triển mà không làm ảnh hưởng tới các nhánh khác. Sau khi các nhánh được hoàn thành thì chúng ta có thể pull request để team có thể review code (chứ đừng ngáo như mình pull request rồi tự merge luôn) sau đó nếu code ok thì có thể merge. Do nhánh hoàn toàn độc lập với nhau nên việc tạo nhành để dự án chia thành nhiều phần nhỏ là phương án tốt nhất để quản lý dự án.
 
 ## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
-## Một số lệnh cơ bản về github
+## Một số lệnh và khái niệm cơ bản về github
 ### Git add
 `git add` dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
 Thông thường chúng ta sẽ sử dụng câu lệnh là `git add .` Dấu chấm ở đây là chúng ta sẽ thêm tất cả các file git thay đổi.
@@ -94,7 +94,7 @@ git checkout <name_branch>
 
 ### git merge
 Dùng để hợp nhất nhánh phụ vào nhánh chính hoặc bất kỳ nhánh nào khác. Nó sẽ tự động kết hợp lịch sử commit từ nhánh nguồn vào nhánh chính và tạo ra commit mới.
-Để sử dụng git merge thì trước tiên ta cần phải vào nhánh chính
+Để sử dụng `git merge` thì trước tiên ta cần phải vào nhánh chính
 ```sh
 git checkout master
 ```
@@ -109,9 +109,26 @@ git merge <name_branch>
  ```sh
  git pull origin <name_branch>
  ```
+### Git conflict
+`Git conflict` là gì ? Như tên của nó conflict là xung đột. Hiện tượng này xảy ra khi mà trong team có 2 hoặc nhiều người thay đổi cùng một tệp. Các xung đột này có thể xuất hiện tại local hoặc trên kho lưu trữ cục bộ do code không thể hợp nhất. Vậy làm cách nào để khắc phục tình trạng này? Và phương án hạn chế việc xung đột này?
+Theo mình được biết, trước hết chúng ta cần phải lấy code từ trên github về bằng lệnh `git pull origin master`. Sau đó sẽ có thông báo lỗi từ git:
+```sh
+CONFLICT (content): Merge conflict in <name_file_conflict>
+```
+Khi này trong file conflict sẽ gồm 3 phần:
+* `<<<<<<< HEAD là nội dung trên local`
+* `======= ngăn cách 2 nội dung bị conflict`
+* `>>>>>>> .... là nội dung trên git`
+
+Chỉnh sửa nội dung của code gây xung đột, sau đó chúng ta thực hiện add và commit nó lên.
+
+### Gitflow workflow
+Gitflow workflow là một quy chuẩn trong quá trình làm việc, cách mà chúng ta xây dựng các branch khác nhau và cách thức để marge chúng lại với nhau.
+
 
 ## Tài liệu tham khảo:
 https://en.wikipedia.org/wiki/Secure_Shell
 https://viblo.asia/p/git-dung-https-hay-ssh-eW65Gm9jZDO
 
 trạng thái của repo https://viblo.asia/p/git-overview-oOVlYq3Bl8W
+git workflow: https://viblo.asia/p/co-ban-ve-gitflow-workflow-4dbZNn6yZYM
