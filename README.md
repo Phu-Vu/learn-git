@@ -86,7 +86,7 @@ git push origin <branch>
 
 ### Git chechout
 `git checkout` sử dụng để làm việc qua lại giũa các nhánh.Ở trên chúng ta đã nói qua khái niệm về `branch` và lý do vì sao chúng ta phải tạo và sử dụng branch. Vậy cách tạo branch như thế nào?
-Để tạo branch thì chúng ta sử dụng lên
+Để tạo branch thì chúng ta sử dụng lệnh
 ```sh
 git checkout -b <name_branch>
 ```
@@ -145,7 +145,9 @@ Ngoài ra, tùy vào từng dự án chúng ta có thể tạo ra một số bra
 
 ## Tài liệu tham khảo:
 https://en.wikipedia.org/wiki/Secure_Shell
+
 https://viblo.asia/p/git-dung-https-hay-ssh-eW65Gm9jZDO
 
 Trạng thái của repo https://viblo.asia/p/git-overview-oOVlYq3Bl8W
+
 Git workflow: https://viblo.asia/p/co-ban-ve-gitflow-workflow-4dbZNn6yZYM
