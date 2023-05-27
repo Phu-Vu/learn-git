@@ -59,15 +59,56 @@ Thông thường trong các project của chúng ta luôn có một nhánh code 
 ## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta một số câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh cơ bản về github
 ### Git add
-git add dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
-thông thường chúng ta sẽ sử dụng câu lệnh là `git add .` Dấu chấm ở đây là chúng ta sẽ thêm tất cả các file git thay đổi.
-tương tự với `git add .`, `git add *` thêm tất cả các file git thay đổi trừ các tệp có `tên bắt đầu bằng dấu chấm`.
+`git add` dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
+Thông thường chúng ta sẽ sử dụng câu lệnh là `git add .` Dấu chấm ở đây là chúng ta sẽ thêm tất cả các file git thay đổi.
+Tương tự với `git add .`, `git add *` thêm tất cả các file git thay đổi trừ các tệp có `tên bắt đầu bằng dấu chấm`.
 Vậy git add thì dùng khi nào?
-Khi có sự thay đổi code hoặc thêm, xóa file trong folder chứa .git và ta muốn commit, push code lên thì cần phải thêm những thay đổi đó. Nếu không add thì ta sẽ nhận được thông báo 
+Khi có sự thay đổi code hoặc thêm, xóa file trong folder chứa .git và ta muốn commit, push code lên thì cần phải thêm những thay đổi đó.
 
 ### Git commit
-git commit -m "message" . -m ở đây là viết tắt của từ message
+`git commit` là hành động lưu lại một bản sao của các file mà ta vừa sử dụng `git add`. Và như chúng ta nhắc ở trên, sau khi commit, thì các thư mục sẽ nằm trong vùng Stagin Area. Mỗi lần commit sẽ lưu lại lịch sử kèm theo message và tên của người chỉnh sửa nó. 
+Câu lệnh: 
+``` sh
+git commit -m "message"
+```
+-m ở đây là viết tắt của từ message
 
+### Git push
+Sau khi các thay đổi được lưu thì đây là lúc code được đẩy lên repo của github. Lệnh git push sẽ giúp chúng ta đẩy các thay đổi lên nhánh mong muốn.
+```sh
+git push origin <branch>
+```
+
+### Git chechout
+`git checkout` sử dụng để làm việc qua lại giũa các nhánh.Ở trên chúng ta đã nói qua khái niệm về `branch` và lý do vì sao chúng ta phải tạo và sử dụng branch. Vậy cách tạo branch như thế nào?
+Để tạo branch thì chúng ta sử dụng lên
+```sh
+git checkout -b <name_branch>
+```
+Câu lệnh này giúp chúng ta tạo branch và chuyển sang nhánh đó.
+
+Nếu muốn thay đổi nhánh qua lại với nhau ta sử dụng câu lệnh:
+```sh
+git checkout <name_branch>
+```
+
+### git merge
+Dùng để hợp nhất nhánh phụ vào nhánh chính hoặc bất kỳ nhánh nào khác. Nó sẽ tự động kết hợp lịch sử commit từ nhánh nguồn vào nhánh chính và tạo ra commit mới.
+Để sử dụng git merge thì trước tiên ta cần phải vào nhánh chính
+```sh
+git checkout master
+```
+Sau đó chúng ta bắt đầu thực hiện merge branch vào master
+```sh
+git merge <name_branch>
+```
+
+
+### Git pull
+`Git pull` giúp chúng ta kéo source code từ github về và đồng thời hợp nhất nó. Câu lệnh này gồm 2 lệnh `git fetch` để tải code từ repo được chỉ định, sau đó sử dụng `git merge` để hợp nhất với code từ repo và code trên local.
+ ```sh
+ git pull origin <name_branch>
+ ```
 
 ## Tài liệu tham khảo:
 https://en.wikipedia.org/wiki/Secure_Shell
