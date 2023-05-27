@@ -20,7 +20,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 Sau khi sử dụng câu lệnh chúng ta sẽ có một folder `.ssh` gồm hai file chứa khóa private và public.
 Truy cập https://github.com/settings/keys . Chọn New SSH Key đặt tên cho title và dán key public sau đó chọn Add SSH key
 
-![image](https://github.com/Phu-Vu/learn-git/assets/111777472/445b30e5-d178-4955-979d-7801ee68bc7e)
+![image](https://github.com/Phu-Vu/learn-git/blob/main/SSH%20key.png)
 
 Thế nhược điểm của SSH là gì?
 * Khi không có tài khoản git thì bạn không thể clone được repo mà chỉ có thể sử dụng giao thức HTTPS
@@ -33,11 +33,11 @@ Như đã nói ở trên thì giao thức SSH giúp chúng ta thao tác với gi
 ### Cách git quản lý file
 Chúng ta cần phải biết về ba trạng thái của repo:
 
-![image](https://github.com/Phu-Vu/learn-git/assets/111777472/c9c10932-a166-4780-9249-2e9adad943b0)
+![image](https://github.com/Phu-Vu/learn-git/blob/main/github.png)
 
 Tương ứng với 3 vị trí này thì chúng ta có 3 lệnh cơ bản:
 
-![image](https://github.com/Phu-Vu/learn-git/assets/111777472/6d845e95-7fcf-4ab0-a3ae-2dd4172f0667)
+![image](https://github.com/Phu-Vu/learn-git/blob/main/github2.png)
 
 Working directory: là nơi mà ta đang thực hiện các thao tác với code hoặc là một folder ở trên máy tính rồi chúng ta dùng git init để tạo ra một file .git bên trong nó. Giải thích về file .git thì nó là một file để git có thể lưu trữ thông tin và lịch sử thay đổi của code.
 
@@ -56,7 +56,7 @@ Khi làm việc nhóm, công việc sẽ chia thành những task nhỏ vì th�
 Thông thường trong các project của chúng ta luôn có một nhánh code chính đó là nhánh main. Vậy tại sao phải chia ra nhánh code để làm gì? Tại sao không gộp chung hết vào một nhánh?
 Để giải đáp các câu hỏi này thì trước tiên chúng ta tìm hiểu branch là gì? Như tên gọi của nó thì branch là nhánh của repository, mỗi nhánh sẽ tương tự như một không gian làm việc độc lập phát triển mà không làm ảnh hưởng tới các nhánh khác. Sau khi các nhánh được hoàn thành thì chúng ta có thể pull request để team có thể review code (chứ đừng ngáo như mình pull request rồi tự merge luôn) sau đó nếu code ok thì có thể merge. Do nhánh hoàn toàn độc lập với nhau nên việc tạo nhành để dự án chia thành nhiều phần nhỏ là phương án tốt nhất để quản lý dự án.
 
-## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta một số câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
+## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh cơ bản về github
 ### Git add
 `git add` dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
