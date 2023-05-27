@@ -4,31 +4,31 @@ Github là dịch vụ cung cấp kho lưu trữ mà nguồn. Nó giúp chúng t
 
 ## Git HTTPS và Git SSH
 `HTTPS` và `SSH` là 2 giao thức truyền dữ liệu trong github.
-Để hiểu về HTTP thì trước hết chúng ta phải biết HTTP là gì? Thì HTTP là dữ liệu truyền giữa client và server. Người dùng sẽ đóng vai trò là client gửi yêu cầu (request) đến server và server sẽ phản hồi(response) về cho người dùng. Nhưng HTTP sẽ truyền đi với thông tin truyền đi không được mã hóa do đó nó dễ bị lấy cắp thông tin, bảo mật kém và dễ bị rò rỉ. Không nên dùng phương thức này bởi nó không có tính an toàn cao nhưng đối với một số trang web không cần tính bảo mật thì họ vẫn đang dùng phương thức này.
+Để hiểu về `HTTP` thì trước hết chúng ta phải biết `HTTP` là gì? Thì `HTTP` là dữ liệu truyền giữa client và server. Người dùng sẽ đóng vai trò là client gửi yêu cầu (request) đến server và server sẽ phản hồi(response) về cho người dùng. Nhưng HTTP sẽ truyền đi với thông tin truyền đi không được mã hóa do đó nó dễ bị lấy cắp thông tin, bảo mật kém và dễ bị rò rỉ. Không nên dùng phương thức này bởi nó không có tính an toàn cao nhưng đối với một số trang web không cần tính bảo mật thì họ vẫn đang dùng phương thức này.
 
-Vì vậy ta cần một giao thức bảo mật hơn và phổ biến hiện nay đó chính là HTTPS. HTTPS là sự kết hợp giữa SSL với HTTP (Về SSL là một tiêu chuẩn cho phép thiết lập kết nối được mã hóa giữa client và server, giúp bảo vệ thông tin nhạy cảm) giao thức bảo mật hơn của HTTP được mã hóa thông tin và nó sẽ hỗ trợ việc xác thực danh tính người dùng bằng cách đăng nhập tài khoản. Hầu hết các trang web hiện nay đều sử dụng giao thức này bởi tính bảo mật cao.
-Tuy thế nhưng HTTPS trong github vẫn còn một số nhược điểm:
+Vì vậy ta cần một giao thức bảo mật hơn và phổ biến hiện nay đó chính là `HTTPS`. `HTTPS` là sự kết hợp giữa `SSL` với `HTTP` (Về SSL là một tiêu chuẩn cho phép thiết lập kết nối được mã hóa giữa client và server, giúp bảo vệ thông tin nhạy cảm) giao thức bảo mật hơn của `HTTP` được mã hóa thông tin và nó sẽ hỗ trợ việc xác thực danh tính người dùng bằng cách đăng nhập tài khoản. Hầu hết các trang web hiện nay đều sử dụng giao thức này bởi tính bảo mật cao.
+Tuy thế nhưng `HTTPS` trong github vẫn còn một số nhược điểm:
 * Mỗi khi thao tác các lệnh git với repo, ta sẽ cần phải nhập lại password.
 * Nếu bị lộ thông tin tài khoản, người khác sẽ có thể toàn quyền với repo của chúng ta.
 
-SSH là một giao thức mạng để đăng nhập an toàn từ xa và dữ liệu đều được mã hóa mà không cần phải thực hiện việc đăng nhập như giao thức HTTPS. Việc xác thực các thiết bị từ xa sử dụng cặp mã khóa public và private. Để tạo mã khóa, trước tiên chúng ta cần phải có tài khoảng github tên trang https://github.com/, tải và cài đặt git: https://git-scm.com/downloads
-Sau khi cài đặt, chúng ta vào mở Git Bash và sử dụng lệnh:
+`SSH` là một giao thức mạng để đăng nhập an toàn từ xa và dữ liệu đều được mã hóa mà không cần phải thực hiện việc đăng nhập như giao thức `HTTPS`. Việc xác thực các thiết bị từ xa sử dụng cặp mã khóa public và private. Để tạo mã khóa, trước tiên chúng ta cần phải có tài khoảng github tên trang https://github.com/, tải và cài đặt git: https://git-scm.com/downloads
+Sau khi cài đặt, chúng ta vào mở `Git Bash` và sử dụng lệnh:
 ```sh
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 Sau khi sử dụng câu lệnh chúng ta sẽ có một folder `.ssh` gồm hai file chứa khóa private và public.
-Truy cập https://github.com/settings/keys . Chọn New SSH Key đặt tên cho title và dán key public sau đó chọn Add SSH key
+Truy cập https://github.com/settings/keys . Chọn `New SSH Key` đặt tên cho title và dán key public sau đó chọn `Add SSH key`
 
 ![image](https://github.com/Phu-Vu/learn-git/blob/main/SSH%20key.png)
 
-Thế nhược điểm của SSH là gì?
+Thế nhược điểm của `SSH` là gì?
 * Khi không có tài khoản git thì bạn không thể clone được repo mà chỉ có thể sử dụng giao thức HTTPS
 * Phải cài đặt mã khóa cho github
 
-Tóm lại, cả hai giao thức HTTPS và SSH đều là hai giao thức bảo mật dữ liệu an toàn. Thế nhưng tại sao nhiều người lại sử dụng giao thức SSH hơn?
-Như đã nói ở trên thì giao thức SSH giúp chúng ta thao tác với git mà không cần phải đăng nhập như HTTPS. Việc đăng nhập làm chúng ta gián đoạn công việc gây ra sự bất tiện nhất thời.
+Tóm lại, cả hai giao thức `HTTPS` và `SSH` đều là hai giao thức bảo mật dữ liệu an toàn. Thế nhưng tại sao nhiều người lại sử dụng giao thức SSH hơn?
+Như đã nói ở trên thì giao thức `SSH` giúp chúng ta thao tác với git mà không cần phải đăng nhập như `HTTPS`. Việc đăng nhập làm chúng ta gián đoạn công việc gây ra sự bất tiện nhất thời.
 
 ***
 
@@ -42,17 +42,17 @@ Tương ứng với 3 vị trí này thì chúng ta có 3 lệnh cơ bản:
 
 ![image](https://github.com/Phu-Vu/learn-git/blob/main/github2.png)
 
-Working directory: là nơi mà ta đang thực hiện các thao tác với code hoặc là một folder ở trên máy tính rồi chúng ta dùng git init để tạo ra một file .git bên trong nó. Giải thích về file .git thì nó là một file để git có thể lưu trữ thông tin và lịch sử thay đổi của code.
+`Working directory`: là nơi mà ta đang thực hiện các thao tác với code hoặc là một folder ở trên máy tính rồi chúng ta dùng git init để tạo ra một file .git bên trong nó. Giải thích về file .git thì nó là một file để git có thể lưu trữ thông tin và lịch sử thay đổi của code.
 
-Stagging area: là nơi lưu trữ các thay đổi trước khi `commit`. Sau khi thao tác xong trên woking directory thì chúng ta sẽ `commit` và `push` để code được đẩy lên repository nhưng chúng ta cần phải `add` những file thay đổi vào trong stagging area.
+`Stagging area`: là nơi lưu trữ các thay đổi trước khi `commit`. Sau khi thao tác xong trên woking directory thì chúng ta sẽ `commit` và `push` để code được đẩy lên repository nhưng chúng ta cần phải `add` những file thay đổi vào trong stagging area.
 
-Git directory (repository): là nơi mà chúng ta lưu trữ code. Sau khi commit thì các thay đổi sẽ được lưu lại trên repository. Hiểu đơn giản thì repository là nơi chứa các toàn bộ các thông tin về project. Tất cả các dữ liệu của repository đều được chứa trong file .git
+`Git directory` (repository): là nơi mà chúng ta lưu trữ code. Sau khi commit thì các thay đổi sẽ được lưu lại trên repository. Hiểu đơn giản thì repository là nơi chứa các toàn bộ các thông tin về project. Tất cả các dữ liệu của repository đều được chứa trong file .git
 
 ### Pull request
-Pull request là hành động mà người code yêu cầu được đẩy code vào nhánh khác (mình nghĩ thông thường là nhánh main). Từ đó mọi người có thể review, chỉnh sửa code một cách thống nhất rồi mới merge(hợp nhất). Thế tại sao phải tạo pull request nhỉ ? Sao không merge luôn vào code chính =.=
+`Pull request` là hành động mà người code yêu cầu được đẩy code vào nhánh khác (mình nghĩ thông thường là nhánh main). Từ đó mọi người có thể review, chỉnh sửa code một cách thống nhất rồi mới `merge`(hợp nhất). Thế tại sao phải tạo `pull request` nhỉ ? Sao không `merge` luôn vào code chính =.=
 * Như nói ở trên, code cần được phải quản lý mội cách chặt chẽ, để đảm bảo được chất lượng của code, tránh các lỗi và xung đột trong quá trình phát triển.
 * Giúp quá trình kiểm tra dễ dàng hơn và chấp nhận các code.
-Vậy khi nào chúng ta cần thực hiện pull request?
+Vậy khi nào chúng ta cần thực hiện `pull request`?
 Khi làm việc nhóm, công việc sẽ chia thành những task nhỏ vì thế mỗi khi muốn hợp nhất từ nhánh phụ vào nhánh chính thì ta cần phải review code để tránh ảnh hưởng đến code hiện tại.
 
 ### Branch
@@ -61,7 +61,7 @@ Thông thường trong các project của chúng ta luôn có một nhánh code 
 
 ***
 
-Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
+`Github` là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh và khái niệm cơ bản về github
 ### Git add
 `git add` dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
