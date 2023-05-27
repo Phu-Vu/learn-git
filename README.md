@@ -52,7 +52,7 @@ Pull request là hành động mà người code yêu cầu được đẩy code
 
 ### Branch
 Thông thường trong các project của chúng ta luôn có một nhánh code chính đó là nhánh main. Vậy tại sao phải chia ra nhánh code để làm gì? Tại sao không gộp chung hết vào một nhánh?
-Để giải đáp các câu hỏi này thì trước tiên chúng ta tìm hiểu branch là gì? Như tên gọi của nó thì branch là nhánh của repository, mỗi nhánh sẽ tương tự như một không gian làm việc độc lập phát triển mà không làm ảnh hưởng tới các nhánh khác. Sau khi các nhánh được hoàn thành thì chúng ta có thể pull request để team có thể review code (chứ đừng ngáo như mình pull request rồi tự merge luôn) sau đó nếu code ok thì có thể merge. Do nhánh hoàn toàn độc lập với nhau.
+Để giải đáp các câu hỏi này thì trước tiên chúng ta tìm hiểu branch là gì? Như tên gọi của nó thì branch là nhánh của repository, mỗi nhánh sẽ tương tự như một không gian làm việc độc lập phát triển mà không làm ảnh hưởng tới các nhánh khác. Sau khi các nhánh được hoàn thành thì chúng ta có thể pull request để team có thể review code (chứ đừng ngáo như mình pull request rồi tự merge luôn) sau đó nếu code ok thì có thể merge. Do nhánh hoàn toàn độc lập với nhau nên việc tạo nhành để dự án chia thành nhiều phần nhỏ là phương án tốt nhất để quản lý dự án.
 
 Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta một số câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh cơ bản về github
