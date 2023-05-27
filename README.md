@@ -16,7 +16,8 @@ Sau khi cài đặt, chúng ta vào mở Git Bash và sử dụng lệnh:
 ```sh
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-(https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 Sau khi sử dụng câu lệnh chúng ta sẽ có một folder `.ssh` gồm hai file chứa khóa private và public.
 Truy cập https://github.com/settings/keys . Chọn New SSH Key đặt tên cho title và dán key public sau đó chọn Add SSH key
 
@@ -29,7 +30,9 @@ Thế nhược điểm của SSH là gì?
 Tóm lại, cả hai giao thức HTTPS và SSH đều là hai giao thức bảo mật dữ liệu an toàn. Thế nhưng tại sao nhiều người lại sử dụng giao thức SSH hơn?
 Như đã nói ở trên thì giao thức SSH giúp chúng ta thao tác với git mà không cần phải đăng nhập như HTTPS. Việc đăng nhập làm chúng ta gián đoạn công việc gây ra sự bất tiện nhất thời.
 
-## Để sử dụng git thì chúng ta cần phải hiểu cách mà git quản lý file và các khái niệm về pull request, branch(nhánh)
+***
+
+Để sử dụng git thì chúng ta cần phải hiểu cách mà git quản lý file và các khái niệm về pull request, branch(nhánh)
 ### Cách git quản lý file
 Chúng ta cần phải biết về ba trạng thái của repo:
 
@@ -56,7 +59,9 @@ Khi làm việc nhóm, công việc sẽ chia thành những task nhỏ vì th�
 Thông thường trong các project của chúng ta luôn có một nhánh code chính đó là nhánh main. Vậy tại sao phải chia ra nhánh code để làm gì? Tại sao không gộp chung hết vào một nhánh?
 Để giải đáp các câu hỏi này thì trước tiên chúng ta tìm hiểu branch là gì? Như tên gọi của nó thì branch là nhánh của repository, mỗi nhánh sẽ tương tự như một không gian làm việc độc lập phát triển mà không làm ảnh hưởng tới các nhánh khác. Sau khi các nhánh được hoàn thành thì chúng ta có thể pull request để team có thể review code (chứ đừng ngáo như mình pull request rồi tự merge luôn) sau đó nếu code ok thì có thể merge. Do nhánh hoàn toàn độc lập với nhau nên việc tạo nhành để dự án chia thành nhiều phần nhỏ là phương án tốt nhất để quản lý dự án.
 
-## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
+***
+
+Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta khá nhiều câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh và khái niệm cơ bản về github
 ### Git add
 `git add` dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
@@ -124,23 +129,23 @@ Chỉnh sửa nội dung của code gây xung đột, sau đó chúng ta thực 
 
 ### Gitflow workflow
 Gitflow workflow là một quy chuẩn trong quá trình làm việc, cách mà chúng ta xây dựng các branch khác nhau và cách thức để marge chúng lại với nhau.
-Đây là hình ảnh mô tả quy trình hoạt động với các nhánh
+Đây là hình ảnh mô tả quy trình hoạt động với các nhánh:
+
 ![image](https://github.com/Phu-Vu/learn-git/blob/main/git%20workflow.png)
 
 Giải thích về mỗi nhánh:
-* `Master`: là nhánh chính, có sẵn trong git, nó thể hiện các version của project. Và chúng ta không nên sửa đổi file trực tiếp trên master. Để sửa đổi chúng ta sẽ tạo ra các nhánh sau đó push tất cả các code vào nhánh master.
+* `Master`: là nhánh chính, nhánh dành cho production có sẵn trong git, nó thể hiện các version của project. Và chúng ta không nên sửa đổi file trực tiếp trên master. Để sửa đổi chúng ta sẽ tạo ra các nhánh sau đó hợp nhất tất cả các code vào nhánh master.
 * `Develop`: là nhánh phát triển các tính năng của dự án, được tạo từ nhánh master ngay từ ban đầu để lưu lại các thay đổi của mã nguồn. Từ nhánh develop, chúng ta tiếp tục tạo ra các nhánh nhỏ khác( trong hình là nhánh feature branches) để chia nhỏ xây dựng dự án.
-* `Feature branches`: là nhánh nhỏ được chia ra từ nhánh develop, khi có một feature mới thì sẽ tạo ra một nhánh mới, mỗi nhánh mang một chức năng riêng và sẽ được hợp nhất về nhánh develop.
-* `Release branches`: trước khi release một phần mềm, team cần được kiểm tra lại lần cuối trước khi sản phẩm đến người dùng cuối. Code của nhánh develop sẽ đẩy lên nhánh release và sau cuối cùng nhánh này sẽ đẩy lên cho master để tạo ra sản phẩm.
+* `Feature branches`: là nhánh nhỏ được chia ra từ nhánh develop chủ yếu để phát triển các tính năng mới, khi có một feature mới thì sẽ tạo ra một nhánh mới, mỗi nhánh mang một chức năng riêng và sẽ được hợp nhất về nhánh develop.
+* `Release branches`: trước khi release một phần mềm, team cần được kiểm tra lại lần cuối trước khi sản phẩm đến người dùng cuối. Code của nhánh develop sẽ đẩy lên nhánh release và sau cuối cùng nhánh này sẽ hợp nhất với nhánh master để tạo ra sản phẩm.
 * `Hotfixes`: nhánh được sử dụng để sửa lỗi trên môi trường productions. Khi gặp lỗi trong môi trường productions thì lỗi này sẽ được đẩy từ master về nhánh hotfixes. `Trường hợp 1`: lỗi nghiêm trọng, code từ hotfixes sẽ được đưa về develop để sửa lỗi, quá trình sẽ lặp lại và được đẩy về master. `Trường hợp 2`: lỗi có thể xử lý nhanh, code sẽ được trả về nhánh master.
 
 Ngoài ra, tùy vào từng dự án chúng ta có thể tạo ra một số branchs khác.
-
 
 
 ## Tài liệu tham khảo:
 https://en.wikipedia.org/wiki/Secure_Shell
 https://viblo.asia/p/git-dung-https-hay-ssh-eW65Gm9jZDO
 
-trạng thái của repo https://viblo.asia/p/git-overview-oOVlYq3Bl8W
-git workflow: https://viblo.asia/p/co-ban-ve-gitflow-workflow-4dbZNn6yZYM
+Trạng thái của repo https://viblo.asia/p/git-overview-oOVlYq3Bl8W
+Git workflow: https://viblo.asia/p/co-ban-ve-gitflow-workflow-4dbZNn6yZYM
