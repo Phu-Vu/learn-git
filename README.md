@@ -128,11 +128,13 @@ Gitflow workflow là một quy chuẩn trong quá trình làm việc, cách mà 
 ![image](https://github.com/Phu-Vu/learn-git/blob/main/git%20workflow.png)
 
 Giải thích về mỗi nhánh:
-* Master: là nhánh chính, có sẵn trong git, nó thể hiện các version của project. Và chúng ta không nên sửa đổi file trực tiếp trên master. Để sửa đổi chúng ta sẽ tạo ra các nhánh sau đó push tất cả các code vào nhánh master.
-* Develop: là nhánh phát triển các tính năng của dự án, được tạo từ nhánh master ngay từ ban đầu. Từ nhánh develop, chúng ta tiếp tục tạo ra các nhánh nhỏ khác( trong hình là nhánh feature branches) để chia nhỏ xây dựng dự án.
-* Feature branches: là nhánh nhỏ được chia ra từ nhánh develop, mỗi nhánh mang một chức năng riêng và sẽ hợp nhất về nhánh develop.
-* Release branches: Code của nhánh develop sẽ đẩy lên nhánh release và sau cuối cùng nhánh này sẽ đẩy lên cho master để tạo ra sản phẩm.
-* Hotfixes: 
+* `Master`: là nhánh chính, có sẵn trong git, nó thể hiện các version của project. Và chúng ta không nên sửa đổi file trực tiếp trên master. Để sửa đổi chúng ta sẽ tạo ra các nhánh sau đó push tất cả các code vào nhánh master.
+* `Develop`: là nhánh phát triển các tính năng của dự án, được tạo từ nhánh master ngay từ ban đầu để lưu lại các thay đổi của mã nguồn. Từ nhánh develop, chúng ta tiếp tục tạo ra các nhánh nhỏ khác( trong hình là nhánh feature branches) để chia nhỏ xây dựng dự án.
+* `Feature branches`: là nhánh nhỏ được chia ra từ nhánh develop, khi có một feature mới thì sẽ tạo ra một nhánh mới, mỗi nhánh mang một chức năng riêng và sẽ được hợp nhất về nhánh develop.
+* `Release branches`: trước khi release một phần mềm, team cần được kiểm tra lại lần cuối trước khi sản phẩm đến người dùng cuối. Code của nhánh develop sẽ đẩy lên nhánh release và sau cuối cùng nhánh này sẽ đẩy lên cho master để tạo ra sản phẩm.
+* `Hotfixes`: nhánh được sử dụng để sửa lỗi trên môi trường productions. Khi gặp lỗi trong môi trường productions thì lỗi này sẽ được đẩy từ master về nhánh hotfixes. `Trường hợp 1`: lỗi nghiêm trọng, code từ hotfixes sẽ được đưa về develop để sửa lỗi, quá trình sẽ lặp lại và được đẩy về master. `Trường hợp 2`: lỗi có thể xử lý nhanh, code sẽ được trả về nhánh master.
+
+Ngoài ra, tùy vào từng dự án chúng ta có thể tạo ra một số branchs khác.
 
 
 
