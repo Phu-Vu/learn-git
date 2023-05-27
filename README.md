@@ -49,6 +49,8 @@ Git directory (repository): là nơi mà chúng ta lưu trữ code. Sau khi comm
 Pull request là hành động mà người code yêu cầu được đẩy code vào nhánh khác (mình nghĩ thông thường là nhánh main). Từ đó mọi người có thể review, chỉnh sửa code một cách thống nhất rồi mới merge(hợp nhất). Thế tại sao phải tạo pull request nhỉ ? Sao không merge luôn vào code chính =.=
 * Như nói ở trên, code cần được phải quản lý mội cách chặt chẽ, để đảm bảo được chất lượng của code, tránh các lỗi và xung đột trong quá trình phát triển.
 * Giúp quá trình kiểm tra dễ dàng hơn và chấp nhận các code.
+Vậy khi nào chúng ta cần thực hiện pull request?
+Khi làm việc nhóm, công việc sẽ chia thành những task nhỏ vì thế mỗi khi muốn hợp nhất từ nhánh phụ vào nhánh chính thì ta cần phải review code để tránh ảnh hưởng đến code hiện tại.
 
 ### Branch
 Thông thường trong các project của chúng ta luôn có một nhánh code chính đó là nhánh main. Vậy tại sao phải chia ra nhánh code để làm gì? Tại sao không gộp chung hết vào một nhánh?
@@ -57,8 +59,11 @@ Thông thường trong các project của chúng ta luôn có một nhánh code 
 ## Github là công cụ dùng để quản lý mã nguồn. Thế chúng ta làm quản lý mã nguồn thế nào? Git đã cung cấp cho chúng ta một số câu lệnh để có thể dễ dàng thao tác hơn. Nhưng ở đây chúng ta sẽ nói về một số câu lệnh cơ bản của git.
 ## Một số lệnh cơ bản về github
 ### Git add
-git add dùng để cập nhật trong thư mục, sẫn sàng để commit lên repo. Khi sử dụng git add nó sẽ lưu lại nhanh những thay đổi
-thông thường chúng ta sẽ sử dụng câu lệnh là `git add .` Dấu chấm ở đây là chúng ta sẽ thêm tất cả các file git thay đổi
+git add dùng sẽ lưu lại nhanh những thay đổi cập nhật trong thư mục, sẫn sàng để commit lên repo.
+thông thường chúng ta sẽ sử dụng câu lệnh là `git add .` Dấu chấm ở đây là chúng ta sẽ thêm tất cả các file git thay đổi.
+tương tự với `git add .`, `git add *` thêm tất cả các file git thay đổi trừ các tệp có `tên bắt đầu bằng dấu chấm`.
+Vậy git add thì dùng khi nào?
+Khi có sự thay đổi code hoặc thêm, xóa file trong folder chứa .git và ta muốn commit, push code lên thì cần phải thêm những thay đổi đó. Nếu không add thì ta sẽ nhận được thông báo 
 
 ### Git commit
 git commit -m "message" . -m ở đây là viết tắt của từ message
